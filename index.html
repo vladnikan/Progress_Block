@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ozon</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Progress</h1>
+      </header>
+
+      <main class="main">
+        <div id="progress-block" class="progress-wrapper">
+          <svg
+            class="progress-circle"
+            width="190"
+            height="190"
+            viewBox="0 0 190 190"
+          >
+            <circle class="progress-ring__bg" cx="95" cy="95" r="80" />
+            <circle class="progress-ring__progress" cx="95" cy="95" r="80" />
+          </svg>
+        </div>
+
+        <div class="controls">
+          <div class="setting-item">
+            <span class="setting-label">Value</span>
+            <input
+              type="number"
+              id="value-input"
+              class="value-input"
+              min="0"
+              max="100"
+              value="60"
+            />
+          </div>
+
+          <div class="setting-item">
+            <span class="setting-label">Animate</span>
+            <label class="switch">
+              <input type="checkbox" id="animate-toggle" />
+              <span class="slider"></span>
+            </label>
+          </div>
+
+          <div class="setting-item">
+            <span class="setting-label">Hide</span>
+            <label class="switch">
+              <input type="checkbox" id="hide-toggle" />
+              <span class="slider"></span>
+            </label>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,190 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, Roboto, sans-serif;
+  background: #f5f7fa;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+header {
+  text-align: left;
+  margin-bottom: 40px;
+}
+
+h1 {
+  font-size: 18px;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 100px;
+}
+
+.progress-wrapper {
+  position: relative;
+  width: 190px;
+  height: 190px;
+  flex-shrink: 0;
+  overflow: visible;
+}
+
+.progress-circle {
+  transform: rotate(-90deg);
+  overflow: visible;
+  display: block;
+}
+
+.progress-ring__bg,
+.progress-ring__progress {
+  fill: transparent;
+  stroke-width: 16;
+}
+
+.progress-ring__bg {
+  stroke: #e6e6e6;
+}
+
+.progress-ring__progress {
+  stroke: #2023df;
+  transition: stroke-dashoffset 0.4s ease;
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  max-width: 340px;
+}
+
+.setting-item {
+  display: flex;
+  gap: 30px;
+  flex-direction: row-reverse;
+  align-items: center;
+  padding: 14px 0;
+}
+
+.setting-item:last-child {
+  border-bottom: none;
+}
+
+.setting-label {
+  font-size: 16px;
+  color: #34495e;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 30px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 30px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 27px;
+  width: 27px;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #2023df;
+}
+
+input:checked + .slider:before {
+  transform: translateX(20px);
+}
+
+.value-input {
+  width: 50px;
+  height: 30px;
+  font-size: 18px;
+  border: 2px solid #000000;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.value-input:focus {
+  outline: none;
+  border-color: #2023df;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(-90deg);
+  }
+  to {
+    transform: rotate(270deg);
+  }
+}
+
+.animated .progress-circle {
+  animation: rotate 1.5s linear infinite;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* ===================== АДАПТАЦИЯ ===================== */
+
+@media (max-width: 360px) {
+  .progress-wrapper {
+    width: 160px;
+    height: 160px;
+  }
+}
+
+/* Ландшафтная ориентация при ширине >= 568px */
+@media (min-width: 568px) and (orientation: landscape) {
+  .main {
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 90px;
+  }
+
+  .progress-wrapper {
+    width: 210px;
+    height: 210px;
+  }
+
+  .controls {
+    max-width: 360px;
+  }
+}
